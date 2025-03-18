@@ -3,9 +3,11 @@
 :root{
     --round: 10px;
     --box-padding: 64px;
+    --box-padding-sm: 32px;
     --button-padding-x: 12px;
     --button-padding-y: 8px;
-    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3); 
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --border: 1px solid#aaa;
 
     --primary: #9300e9;
     --primary-hover: #8200de;
@@ -40,8 +42,7 @@ body{
 .box{
     display: flex;
     flex-direction: column;
-    border: 1px solid;
-    border-color: #888;
+    border: var(--border);
     border-radius: var(--round);
     padding: var(--box-padding);
     background-color: #ddd;
@@ -54,7 +55,7 @@ body{
 
     display: flex;
     justify-content: center;
-    flex-grow: 1;
+    width: auto;
 
     padding-top: var(--button-padding-y);
     padding-bottom: var(--button-padding-y);
@@ -106,8 +107,7 @@ h3{
     right: 0;
     left: 0;
     background-color: #eee;
-    border-bottom: 1px solid;
-    border-color: #888;
+    border-bottom: var(--border);
     box-shadow: var(--shadow);
     padding: 0 4px 0 0;
 }
@@ -116,6 +116,7 @@ h3{
     display: flex;
     padding: 0;
     text-decoration: none;
+    align-items: center;
 }
 
 .banner-text{
@@ -183,10 +184,10 @@ h3{
     :root{
         --link: #00ddff;
         --link-hover: #00bbdd;
+        --border: 1px solid #777;
     }
     
     .box{
-        border-color: #333;
         background-color: #444;
     }
 
@@ -196,11 +197,12 @@ h3{
 
     h3{
         color: #dedede;
+        font-size: 40px;
+        font-weight: 350;
     }
 
     .banner{
-        background-color: #444;
-        border-color: #333;
+        background-color: #555;
     }
 
     .banner-text{
@@ -214,4 +216,67 @@ h3{
 
 [dir=rtl] .banner-button-icon{
     rotate: 180deg;
+}
+
+@media (max-width: 500px) {
+
+    .content-box{
+        justify-content: unset;
+    }
+
+    .box{
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+    }
+
+    .box-content{
+        padding: var(--box-padding-sm) var(--box-padding-sm) 0 var(--box-padding-sm);
+    }
+
+    .box .button{
+        margin: 0 var(--box-padding-sm) var(--box-padding-sm) var(--box-padding-sm);
+    }
+
+    .banner{
+        top: auto;
+        bottom: 0;
+        box-shadow: none;
+        border-bottom: 0;
+        border-top: var(--border);
+    }
+
+    .banner-image{
+        height: 51px;
+        width: 64px;
+    }
+
+    .banner-text{
+        font-size: 19px;
+    }
+
+    .button, .banner-button{
+        font-size: 18px;
+    }
+
+    .banner-button-icon{
+        --size: 23px;
+    }
+
+    h3 {
+        font-size: 50px;
+    }
+
+    .box-image{
+        --size: 80px;
+    }
+
+    @media (prefers-color-scheme: dark){
+        .banner{
+            border-color: #777;
+        }
+    }
 }
