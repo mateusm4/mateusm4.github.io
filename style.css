@@ -1,0 +1,217 @@
+/* Built with love by: mateums4 (https://www.github.com/mateusm4) */
+
+:root{
+    --round: 10px;
+    --box-padding: 64px;
+    --button-padding-x: 12px;
+    --button-padding-y: 8px;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3); 
+
+    --primary: #9300e9;
+    --primary-hover: #8200de;
+    --blue: #0052e9;
+    --blue-hover: #0044e1;
+    --link: #009dd9;
+    --link-hover: #0086c5;
+    --text-muted: #444;
+}
+
+html{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: system-ui, Geneva, Tahoma, 'Trebuchet MS', Helvetica, Arial, Verdana, sans-serif, serif;
+    height: 100%;
+}
+
+.content-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary);
+    height: 100%;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    border-color: #888;
+    border-radius: var(--round);
+    padding: var(--box-padding);
+    background-color: #ddd;
+    gap: 12px;
+    box-shadow: var(--shadow);
+}
+
+.button{
+    appearance: none;
+
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+
+    padding-top: var(--button-padding-y);
+    padding-bottom: var(--button-padding-y);
+    padding-left: var(--button-padding-x);
+    padding-right: var(--button-padding-x);
+
+    border-radius: var(--round);
+    border: 0;
+    transition: 200ms;
+
+    font-size: 15px;
+    text-decoration: none;
+    color: white;
+
+    background-color: var(--primary);
+}
+
+.button:hover{
+    background-color: var(--primary-hover);
+}
+
+.box-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.box-image{
+    --size: 60px;
+
+    fill: #333;
+    width: var(--size);
+    height: var(--size);
+}
+
+h3{
+    font-size: 40px;
+    color: var(--text-muted);
+    margin: 0;
+    padding: 0;
+}
+
+.banner{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: #eee;
+    border-bottom: 1px solid;
+    border-color: #888;
+    box-shadow: var(--shadow);
+    padding: 0 4px 0 0;
+}
+
+.banner-content{
+    display: flex;
+    padding: 0;
+    text-decoration: none;
+}
+
+.banner-text{
+    font-size: 16px;
+    margin: 0;
+    padding: 10px;
+    transition: 200ms;
+    text-decoration: none;
+    color: var(--text-muted);
+}
+
+.banner-content:hover .banner-text{
+    color: var(--link);
+}
+
+.banner-content:hover .banner-text:hover{
+    text-decoration: underline;
+}
+
+.banner-image{
+    height: 41px;
+    width: 54px;
+    padding: 0;
+    margin: 0;
+}
+
+.banner-button{
+
+    appearance: none;
+
+    display: flex;
+    place-self: center;
+    width: fit-content;
+    height: fit-content;
+
+    padding-top: var(--button-padding-y);
+    padding-bottom: var(--button-padding-y);
+    padding-left: var(--button-padding-x);
+    padding-right: var(--button-padding-x);
+    gap: 4px;
+
+    border-radius: var(--round);
+    border: 0;
+    transition: 200ms;
+
+    font-size: 15px;
+    text-decoration: none;
+    color: white;
+
+    background-color: var(--blue);
+}
+
+.banner-button:hover{
+    background-color: var(--blue-hover);
+}
+
+.banner-button-icon{
+    --size: 20px;
+    
+    width: var(--size);
+    height: var(--size);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root{
+        --link: #00ddff;
+        --link-hover: #00bbdd;
+    }
+    
+    .box{
+        border-color: #333;
+        background-color: #444;
+    }
+
+    .box-image{
+        fill: #888;
+    }
+
+    h3{
+        color: #dedede;
+    }
+
+    .banner{
+        background-color: #444;
+        border-color: #333;
+    }
+
+    .banner-text{
+        color: #fff;
+    }
+}
+
+[dir=rtl] .banner{
+    padding: 0 0 0 4px;
+}
+
+[dir=rtl] .banner-button-icon{
+    rotate: 180deg;
+}
