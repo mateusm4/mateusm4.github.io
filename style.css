@@ -12,6 +12,8 @@
 
     --main-box-padding: 8px;
 
+    --body-background: #ddd;
+    --loader-wrapper: #ccc;
     --content-box-background: #c156ff;
     --primary: #9300e9;
     --primary-hover: #8200de;
@@ -20,6 +22,7 @@
     --link: #009dd9;
     --link-hover: #0086c5;
     --text-muted: #444;
+    --banner-title: #111;
 }
 
 html{
@@ -36,6 +39,7 @@ body{
 }
 
 .content-box{
+    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -145,17 +149,30 @@ h3{
     align-items: center;
 }
 
-.banner-text{
+.banner-title{
     font-size: 16px;
     margin: 0;
-    padding: 10px;
+    padding: 10px 10px 0 10px;
     transition: 150ms;
-    color: var(--text-muted);
+    color: var(--banner-title);
+}
+
+.banner-text{
+    font-size: 12px;
+    margin: 4px 0 0 0 0;
+    padding: 0 10px 10px 10px;
+    transition: 150ms;
+    color: var(--text-muted)
+}
+
+.banner-column{
+    display: flex;
+    flex-direction: column;
 }
 
 .banner-image{
-    height: 41px;
-    width: 54px;
+    height: 54px;
+    width: 96px;
     padding: 0;
     margin: 0;
     border-radius: var(--round-sm);
@@ -198,12 +215,22 @@ h3{
     height: var(--size);
 }
 
+/* HTML: <div class="loader"></div> */
+
+@keyframes loader {
+    to {rotate: 1turn}
+}
+
 @media (prefers-color-scheme: dark) {
     :root{
         --link: #00ddff;
         --link-hover: #00bbdd;
         --border: 1px solid #666;
         --content-box-background: #410066;
+        --body-background: #333;
+        --loader-wrapper: #444;
+        --banner-title: #fff;
+        --text-muted: #ddd;
     }
     
     .main-box{
@@ -226,14 +253,6 @@ h3{
     .banner:hover{
         background-color: #3c3c3c;
     }
-
-    .banner-text{
-        color: #fff;
-    }
-}
-
-[dir=rtl] .banner{
-    padding: 0 0 0 4px;
 }
 
 [dir=rtl] .banner-button-icon{
